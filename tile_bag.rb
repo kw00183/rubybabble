@@ -47,7 +47,8 @@ class TileBag
   end
 
   def empty?
-    @tile_bag.empty?
+    @is_bag_empty = @tile_bag.empty?
+    return @is_bag_empty
   end
 
   def self.points_for(tile)
@@ -62,5 +63,7 @@ class TileBag
       :V => 4,  :W => 4,  :X => 8,
       :Y => 4,  :Z => 10
     }
+    @points = @tile_points[tile.to_sym]
+    return @points
   end
 end
