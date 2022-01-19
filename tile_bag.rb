@@ -10,33 +10,31 @@
 class TileBag
   def initialize
     tile_bag = []
-    tile_bag.push 9.ti :A
-    tile_bag.push 2.times() :B
-    tile_bag.push 2.times() :C
-    tile_bag.push 4.times() :D
-    tile_bag.push 12.times() :E
-    tile_bag.push 2.times() :F
-    tile_bag.push 3.times() :G
-    tile_bag.push 2.times() :H
-    tile_bag.push 9.times() :I
-    tile_bag.push 1.times() :J
-    tile_bag.push 1.times() :K
-    tile_bag.push 4.times() :L
-    tile_bag.push 2.times() :M
-    tile_bag.push 6.times() :N
-    tile_bag.push 8.times() :O
-    tile_bag.push 2.times() :P
-    tile_bag.push 1.times() :Q
-    tile_bag.push 6.times() :R
-    tile_bag.push 4.times() :S
-    tile_bag.push 6.times() :T
-    tile_bag.push 4.times() :U
-    tile_bag.push 2.times() :V
-    tile_bag.push 2.times() :W
-    tile_bag.push 1.times() :X
-    tile_bag.push 2.times() :Y
-    tile_bag.push 1.times() :Z
-    puts "What should we say?"
-    puts tile_bag.length()
+    9.times() { tile_bag.push :A }
+    2.times() { tile_bag.push :B }
+    2.times() { tile_bag.push :C }
+    4.times() { tile_bag.push :D }
+    12.times() { tile_bag.push :E }
+    2.times() { tile_bag.push :F }
+    3.times() { tile_bag.push :G }
+    2.times() { tile_bag.push :H }
+    9.times() { tile_bag.push :I }
+    1.times() { tile_bag.push :J }
+    1.times() { tile_bag.push :K }
+    4.times() { tile_bag.push :L }
+    2.times() { tile_bag.push :M }
+    6.times() { tile_bag.push :N }
+    8.times() { tile_bag.push :O }
+    2.times() { tile_bag.push :P }
+    1.times() { tile_bag.push :Q }
+    6.times() { tile_bag.push :R }
+    4.times() { tile_bag.push :S }
+    6.times() { tile_bag.push :T }
+    4.times() { tile_bag.push :U }
+    2.times() { tile_bag.push :V }
+    2.times() { tile_bag.push :W }
+    1.times() { tile_bag.push :X }
+    2.times() { tile_bag.push :Y }
+    1.times() { tile_bag.push :Z }
   end
 end
