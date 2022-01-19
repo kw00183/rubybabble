@@ -9,31 +9,34 @@
 # 10-pt tiles: Q, Z
 class TileBag
   def initialize
-    tile_bag = [:A] * 9
-    tile_bag << :B * 2
-    tile_bag << :C * 2
-    tile_bag << :D * 4
-    tile_bag << :E * 12
-    tile_bag << :F * 2
-    tile_bag << :G * 3
-    tile_bag << :H * 2
-    tile_bag << :I * 9
-    tile_bag << :J * 1
-    tile_bag << :K * 1
-    tile_bag << :L * 4
-    tile_bag << :M * 2
-    tile_bag << :N * 6
-    tile_bag << :O * 8
-    tile_bag << :P * 2
-    tile_bag << :Q * 1
-    tile_bag << :R * 6
-    tile_bag << :S * 4
-    tile_bag << :T * 6
-    tile_bag << :U * 4
-    tile_bag << :V * 2
-    tile_bag << :W * 2
-    tile_bag << :X * 1
-    tile_bag << :Y * 2
-    tile_bag << :Z * 1
+    tile_bag = []
+    tile_bag.push 9.ti :A
+    tile_bag.push 2.times() :B
+    tile_bag.push 2.times() :C
+    tile_bag.push 4.times() :D
+    tile_bag.push 12.times() :E
+    tile_bag.push 2.times() :F
+    tile_bag.push 3.times() :G
+    tile_bag.push 2.times() :H
+    tile_bag.push 9.times() :I
+    tile_bag.push 1.times() :J
+    tile_bag.push 1.times() :K
+    tile_bag.push 4.times() :L
+    tile_bag.push 2.times() :M
+    tile_bag.push 6.times() :N
+    tile_bag.push 8.times() :O
+    tile_bag.push 2.times() :P
+    tile_bag.push 1.times() :Q
+    tile_bag.push 6.times() :R
+    tile_bag.push 4.times() :S
+    tile_bag.push 6.times() :T
+    tile_bag.push 4.times() :U
+    tile_bag.push 2.times() :V
+    tile_bag.push 2.times() :W
+    tile_bag.push 1.times() :X
+    tile_bag.push 2.times() :Y
+    tile_bag.push 1.times() :Z
+    puts "What should we say?"
+    puts tile_bag.length()
   end
 end
