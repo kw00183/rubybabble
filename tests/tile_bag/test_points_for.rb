@@ -10,7 +10,7 @@ class TileBag::TestPointsFor < Minitest::Test
     TileBag.new
   end
 
-  # test method names start with "test_"
+  # test to check the point values returned for each letter
   def test_confirm_point_values
     assert_equal 1, TileBag.points_for('A')
     assert_equal 3, TileBag.points_for('B')
