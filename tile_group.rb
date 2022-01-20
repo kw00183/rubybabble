@@ -14,8 +14,8 @@ class TileGroup
   end
 
   def remove(tile)
-    @index = @tile_group.find_index(tile.to_sym)
-    @tile_group.delete_at[@index]
+    @index = @tile_group.index(tile.to_sym)
+    @tile_group.delete_at(@index)
   end
 
   def hand
