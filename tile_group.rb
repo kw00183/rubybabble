@@ -5,7 +5,7 @@ class TileGroup
     @tile_group = []
   end
 
-  def self.tiles
+  def tiles
     return @tile_group
   end
 
