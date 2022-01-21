@@ -1,5 +1,3 @@
-require "./tile_group.rb"
-
 class Word < TileGroup
 
   def initialize
