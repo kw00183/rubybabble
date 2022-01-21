@@ -15,6 +15,7 @@ class Babble
     @wd = Word.new
     @user_input = ""
     @total_score = 0
+    @total_number_played = 0
   end
 
   def run()
@@ -30,14 +31,14 @@ class Babble
       print prompt
       @user_input = gets.chomp
 
-      if @user_input == ""
+      if @user_input == ":quit"
+        break
+      elsif @user_input == ""
         puts "Please enter a word using the tiles"
       elsif (@user_input != "" && Spellchecker::check(@user_input)[0][:correct] == true && @tr.has_tiles_for?(@user_input) == false)
         puts "Not enough tiles"
       elsif (@user_input != "" && Spellchecker::check(@user_input)[0][:correct] == true && @tr.has_tiles_for?(@user_input) == true)
         process_word
-      elsif @user_input == ":quit"
-        break
       else
         puts "Not a valid word"
       end
@@ -54,6 +55,13 @@ class Babble
     @word_score = @played_word.score
     puts "You made " + @user_input.to_s + " for " + @word_score.to_s + " points"
     calculate_total_score(@word_score)
+    number_tiles_played(@word_tiles.length)
+  end
+
+  def number_tiles_played(number_played)
+    @number_played = number_played
+    @total_number_played += @number_played
+    return @total_number_played
   end
 
   def calculate_total_score(score)
@@ -72,6 +80,9 @@ class Babble
 
   def die
     puts "Thanks for playing, total score: " + @total_score.to_s
+    puts "Number of tiles played: " + @total_number_played.to_s
+    puts "Number of tiles left in bag: " + @tb.number_tiles_left.to_s
+    puts "Number of tiles left on rack: " + (7 - @tr.number_of_tiles_needed).to_s
     exit!
   end
 

@@ -46,6 +46,10 @@ class TileBag
     return @random_tile
   end
 
+  def number_tiles_left
+    return @tile_bag.length
+  end
+
   def empty?
     @is_bag_empty = @tile_bag.empty?
     return @is_bag_empty
