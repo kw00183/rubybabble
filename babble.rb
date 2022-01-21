@@ -29,9 +29,9 @@ class Babble
       puts "Make a word from these tiles: " + @tr.hand
       prompt = "> "
       print prompt
-      @user_input = gets.chomp
+      @user_input = gets.chomp.upcase
 
-      if @user_input == ":quit"
+      if @user_input == ":quit" || @user_input == ":QUIT"
         break
       elsif @user_input == ""
         puts "Please enter a word using the tiles"
@@ -54,6 +54,7 @@ class Babble
     @word_tiles = @played_word.tiles
     @word_score = @played_word.score
     puts "You made " + @user_input.to_s + " for " + @word_score.to_s + " points"
+    puts "Your current total score: " + @total_score.to_s
     calculate_total_score(@word_score)
     number_tiles_played(@word_tiles.length)
   end
