@@ -1,8 +1,11 @@
 class TileGroup
-  attr_accessor :tiles
 
   def initialize
     @tile_group = []
+  end
+
+  class << self
+    attr_accessor :tiles
   end
 
   def tiles
