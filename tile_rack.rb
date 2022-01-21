@@ -11,19 +11,10 @@ class TileRack < TileGroup
 
   def has_tiles_for?(text)
     @text = text
-    @text_string_array = @text.split("")
-    @text_array = @text_string_array.map { |x| x.to_sym }
+    @text_array = convert_string_to_array(@text)
 
     @subtract_array_length = @tiles.length - @text_array.length
-
-    # remove the exact indexes between subtracted arrays
-    @ret = @tiles.dup
-    @text_array.each do |element|
-      if index = @ret.index(element)
-        @ret.delete_at(index)
-      end
-    end
-    @subtract_array = @ret
+    @subtract_array = subtract_arrays(@tiles, @text_array)
 
     if (@text_array != [] && @tiles.length >= @text_array.length && @subtract_array.length == @subtract_array_length)
       return true
@@ -34,13 +25,28 @@ class TileRack < TileGroup
 
   def remove_word(text)
     @text = text
-    @text_array = @text.map{ |s| s.split("").uniq }
+    @text_array = convert_string_to_array(@text)
 
-    @text_array.each {
-      |i| @index = @tiles.index(i.to_sym)
-      @tiles.delete_at(@index)
-    }
+    @tiles = subtract_arrays(@tiles, @text_array)
     return @tiles
+  end
+
+  def convert_string_to_array(text)
+    @text = text
+    @text_string_array = @text.split("")
+    @text_array = @text_string_array.map { |x| x.to_sym }
+    return @text_array
+  end
+
+  def subtract_arrays(rack_array, word_array)
+    @ret = rack_array.dup
+    word_array.each do |element|
+      if index = @ret.index(element)
+        @ret.delete_at(index)
+      end
+    end
+    @subtract_array = @ret
+    return @subtract_array
   end
 
 end
