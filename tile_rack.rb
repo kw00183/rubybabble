@@ -11,7 +11,21 @@ class TileRack < TileGroup
 
   def has_tiles_for?(text)
     @text = text
-    if number_of_tiles_needed >= @text.length
+    @text_string_array = @text.split("")
+    @text_array = @text_string_array.map { |x| x.to_sym }
+
+    @subtract_array_length = @tiles.length - @text_array.length
+
+    # remove the exact indexes between subtracted arrays
+    @ret = @tiles.dup
+    @text_array.each do |element|
+      if index = @ret.index(element)
+        @ret.delete_at(index)
+      end
+    end
+    @subtract_array = @ret
+
+    if (@text_array != [] && @tiles.length >= @text_array.length && @subtract_array.length == @subtract_array_length)
       return true
     else
       return false
