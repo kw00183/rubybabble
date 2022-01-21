@@ -13,6 +13,8 @@ class Babble
     @tg = TileGroup.new
     @tr = TileRack.new
     @wd = Word.new
+    @user_input = ""
+    @total_score = 0
   end
 
   def run()
@@ -21,7 +23,6 @@ class Babble
     puts "type ':quit' to exit"
     puts "==============================="
 
-    @user_input = 0
     until (@user_input == ":quit")
       get_rack_tiles
       puts "Make a word from these tiles: " + @tr.hand
@@ -34,7 +35,7 @@ class Babble
       elsif (@user_input != "" && Spellchecker::check(@user_input)[0][:correct] == true && @tr.has_tiles_for?(@user_input) == false)
         puts "Not enough tiles"
       elsif (@user_input != "" && Spellchecker::check(@user_input)[0][:correct] == true && @tr.has_tiles_for?(@user_input) == true)
-        puts "yay"
+        process_word
       elsif @user_input == ":quit"
         break
       else
@@ -48,7 +49,17 @@ class Babble
   end
 
   def process_word
+    @played_word = @tr.remove_word(@user_input)
+    @word_tiles = @played_word.tiles
+    @word_score = @played_word.score
+    puts "You made " + @user_input.to_s + " for " + @word_score.to_s + " points"
+    calculate_total_score(@word_score)
+  end
 
+  def calculate_total_score(score)
+    @score = score
+    @total_score += @score
+    return @total_score
   end
 
   # pull out random tiles to play on rack
@@ -60,7 +71,7 @@ class Babble
   end
 
   def die
-    puts "Thanks for playing, total score: 45"
+    puts "Thanks for playing, total score: " + @total_score.to_s
     exit!
   end
 

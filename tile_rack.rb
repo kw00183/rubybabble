@@ -35,7 +35,7 @@ class TileRack < TileGroup
     @new_word = Word.new
     @text_array.each { |tile| @new_word.append(tile.to_s) }
 
-    return @new_word.tiles
+    return @new_word
   end
 
   def convert_string_to_array(text)
