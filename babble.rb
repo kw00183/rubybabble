@@ -54,9 +54,9 @@ class Babble
     @word_tiles = @played_word.tiles
     @word_score = @played_word.score
     puts "You made " + @user_input.to_s + " for " + @word_score.to_s + " points"
-    puts "Your current total score: " + @total_score.to_s
     calculate_total_score(@word_score)
     number_tiles_played(@word_tiles.length)
+    puts "Your current total score: " + @total_score.to_s
   end
 
   def number_tiles_played(number_played)
