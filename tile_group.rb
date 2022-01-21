@@ -1,4 +1,5 @@
 class TileGroup
+
   attr_accessor :tiles
 
   def initialize

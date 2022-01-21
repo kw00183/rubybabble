@@ -11,7 +11,7 @@ class Word::TestInitialize < Minitest::Test
 
   # test to create empty word on initialize of Word class
   def test_create_empty_word
-    assert_equal [], @wd.return_word
+    assert_equal [], @wd.tiles
   end
 
 end

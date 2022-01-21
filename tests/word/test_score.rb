@@ -7,7 +7,6 @@ require_relative "../../tile_group.rb"
 class Word::TestInitialize < Minitest::Test
   # like an @Before in JUnit4
   def setup
-    @td = TileGroup.new
     @wd = Word.new
   end
 
@@ -18,11 +17,8 @@ class Word::TestInitialize < Minitest::Test
 
   # test to return a score of 0 for empty word
   def test_score_a_one_tile_word
-    @td.append('A')
-    @td.append('R')
-    @td.append('M')
-    @td.append('S')
-    assert_equal 6, @wd.score
+    @wd.append('A')
+    assert_equal 1, @wd.score
   end
 
 end
