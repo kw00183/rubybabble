@@ -1,29 +1,22 @@
 class TileGroup
+  attr_accessor :tiles
 
   def initialize
-    @tile_group = []
-  end
-
-  class << self
-    attr_accessor :tiles
-  end
-
-  def tiles
-    return @tile_group
+    @tiles = []
   end
 
   def append(tile)
-    @tile_group.push tile.to_sym
+    @tiles.push tile.to_sym
   end
 
   def remove(tile)
-    @index = @tile_group.index(tile.to_sym)
-    @tile_group.delete_at(@index)
+    @index = @tiles.index(tile.to_sym)
+    @tiles.delete_at(@index)
   end
 
   def hand
     @hand_array = []
-    @tile_group.each { |tile| @hand_array.push(tile.to_s) }
+    @tiles.each { |tile| @hand_array.push(tile.to_s) }
     @hand = @hand_array.join("")
     return @hand
   end
