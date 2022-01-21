@@ -13,10 +13,10 @@ class TileRack < TileGroup
     @text = text
     @text_array = convert_string_to_array(@text)
 
-    @subtract_array_length = @tiles.length - @text_array.length
-    @subtract_array = subtract_arrays(@tiles, @text_array)
+    @subtracted_array_length = @tiles.length - @text_array.length
+    @subtracted_array = subtract_arrays(@tiles, @text_array)
 
-    if (@text_array != [] && @tiles.length >= @text_array.length && @subtract_array.length == @subtract_array_length)
+    if (@text_array != [] && @tiles.length >= @text_array.length && @subtracted_array.length == @subtracted_array_length)
       return true
     else
       return false
@@ -26,9 +26,16 @@ class TileRack < TileGroup
   def remove_word(text)
     @text = text
     @text_array = convert_string_to_array(@text)
+    @subtracted_array = subtract_arrays(@tiles, @text_array)
 
-    @tiles = subtract_arrays(@tiles, @text_array)
-    return @tiles
+    # remove used tiles from rack
+    @text_array.each { |tile| remove(tile) }
+
+    # create new word object and add the word tiles to it
+    @new_word = Word.new
+    @text_array.each { |tile| @new_word.append(tile.to_s) }
+
+    return @new_word.tiles
   end
 
   def convert_string_to_array(text)

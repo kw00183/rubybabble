@@ -20,7 +20,7 @@ class TileRack::TestRemoveWord < Minitest::Test
     @tr.append('E')
     @tr.append('D')
     assert_equal 0, @tr.number_of_tiles_needed
-    assert_equal [:F, :M, :D], @tr.remove_word('LOVE')
+    assert_equal [:L, :O, :V, :E], @tr.remove_word('LOVE')
   end
 
   # test to return tiles left after remove word whose letters are not in order on the rack
@@ -33,7 +33,7 @@ class TileRack::TestRemoveWord < Minitest::Test
     @tr.append('E')
     @tr.append('D')
     assert_equal 0, @tr.number_of_tiles_needed
-    assert_equal [:F, :M, :D], @tr.remove_word('LOVE')
+    assert_equal [:L, :O, :V, :E], @tr.remove_word('LOVE')
   end
 
   # test to return tiles left after remove word whose letters have duplicates
@@ -46,7 +46,7 @@ class TileRack::TestRemoveWord < Minitest::Test
     @tr.append('E')
     @tr.append('P')
     assert_equal 0, @tr.number_of_tiles_needed
-    assert_equal [:V, :F, :E], @tr.remove_word('LOOP')
+    assert_equal [:L, :O, :O, :P], @tr.remove_word('LOOP')
   end
 
   # test to return tiles left after remove word where rack has duplicates
@@ -59,7 +59,7 @@ class TileRack::TestRemoveWord < Minitest::Test
     @tr.append('E')
     @tr.append('P')
     assert_equal 0, @tr.number_of_tiles_needed
-    assert_equal [:F, :O, :P], @tr.remove_word('LOVE')
+    assert_equal [:L, :O, :V, :E], @tr.remove_word('LOVE')
   end
 
 end
