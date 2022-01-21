@@ -9,19 +9,32 @@ class Babble
   end
 
   def run()
-    prompt = "> "
-    print prompt
+    puts "==============================="
+    puts "Welcome to the Babble Game"
+    puts "type ':quit' to exit"
+    puts "==============================="
 
-    user_input = nil
-    until (user_input == ":quit")
-        puts "Please enter a 1 or 2."
-        user_input = gets.chomp.to_i
+    @user_input = 0
+    until (@user_input == ":quit")
+      prompt = "> "
+      print prompt
+      @user_input = gets.chomp
+
+      if @user_input == ":quit"
+        break
+      end
+
     end
 
-    if user_input == ":quit"
-      puts "Thanks for playing, total score: 45"
-    end
+    die
+
   end
+
+  def die
+    puts "Thanks for playing, total score: 45"
+    exit!
+  end
+
 
 end
 
