@@ -1,3 +1,4 @@
+# class used to create the tile rack object
 class TileRack < TileGroup
   MAX_SIZE = 7
 
@@ -5,10 +6,12 @@ class TileRack < TileGroup
     super
   end
 
+  # method used to return number of tiles needed to fill the rack
   def number_of_tiles_needed
     return MAX_SIZE - @tiles.length
   end
 
+  # method used to check if the rack has the tiles needed for the played word
   def has_tiles_for?(text)
     @text = text
     @text_array = convert_string_to_array(@text)
@@ -23,6 +26,7 @@ class TileRack < TileGroup
     end
   end
 
+  # method removes the played word tiles from the rack and creates/returns a new Word class object
   def remove_word(text)
     @text = text
     @text_array = convert_string_to_array(@text)
@@ -38,6 +42,7 @@ class TileRack < TileGroup
     return @new_word
   end
 
+  # method used to convert a string into an array of symbols
   def convert_string_to_array(text)
     @text = text
     @text_string_array = @text.split("")
@@ -45,6 +50,7 @@ class TileRack < TileGroup
     return @text_array
   end
 
+  # method used to return the new array with the played word tiles removed
   def subtract_arrays(rack_array, word_array)
     @ret = rack_array.dup
     word_array.each do |element|
@@ -52,8 +58,8 @@ class TileRack < TileGroup
         @ret.delete_at(index)
       end
     end
-    @subtract_array = @ret
-    return @subtract_array
+    @subtracted_array = @ret
+    return @subtracted_array
   end
 
 end

@@ -1,3 +1,4 @@
+# class used to create the TileBag object
 # Brute-force fills the bag with a set of tiles with the Scrabble points
 # and letter distribution (ignoring the blank tiles)
 # 1-pt tiles: E, A, I, O, N, R, T, L, S, U
@@ -39,6 +40,7 @@ class TileBag
     1.times() { @tile_bag.push :Z }
   end
 
+  # method used to draw a random tile from the bag
   def draw_tile
     @random = rand(@tile_bag.length - 1)
     @random_tile = @tile_bag[@random]
@@ -46,16 +48,19 @@ class TileBag
     return @random_tile
   end
 
+  # method used for checking number of tiles left in bag
   def number_tiles_left
     return @tile_bag.length
   end
 
+  # method used to check if the bag is empty and return a boolean
   def empty?
     @is_bag_empty = @tile_bag.empty?
     return @is_bag_empty
   end
 
-  def self.points_for(tile)
+  #method used to return points value of tile
+  def points_for(tile)
     @tile_points = {
       :A => 1,  :B => 3,  :C => 3,
       :D => 2,  :E => 1,  :F => 4,

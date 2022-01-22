@@ -1,9 +1,11 @@
+# class used to create a word object and tally the word tile score
 class Word < TileGroup
 
   def initialize
     super
   end
 
+  # method used to get word tiles score
   def score
     @score = 0
 
