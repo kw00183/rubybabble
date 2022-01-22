@@ -60,7 +60,7 @@ class TileBag
   end
 
   #method used to return points value of tile
-  def points_for(tile)
+  def self.points_for(tile)
     @tile_points = {
       :A => 1,  :B => 3,  :C => 3,
       :D => 2,  :E => 1,  :F => 4,

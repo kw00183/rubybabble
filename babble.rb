@@ -105,7 +105,7 @@ class Babble
     puts "Number of tiles played: " + @total_number_played.to_s
     puts "Number of tiles left in bag: " + @tb.number_tiles_left.to_s
     puts "Number of tiles left on rack: " + (MAX_SIZE - @tr.number_of_tiles_needed).to_s
-    exit!
+    exit
   end
 
 end
