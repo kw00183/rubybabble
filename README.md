@@ -1,4 +1,4 @@
-# rubbybabble
+# rubybabble
 
 * Brute-force fills the bag with a set of tiles with the Scrabble points
 * and letter distribution (ignoring the blank tiles)
